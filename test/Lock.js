@@ -104,7 +104,7 @@ describe("Lock", function () {
 
         await expect(lock.withdraw())
           .to.emit(lock, "Withdrawal")
-          .withArgs(lockedAmount, anyValue); // We accept any value as `when` arg
+          .withArgs(lockedAmount, anyValue); 
       });
     });
 

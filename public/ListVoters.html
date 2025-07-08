@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Global Styles & Reset */
+        
         body {
             margin: 0;
             padding: 0;
@@ -20,11 +20,11 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            overflow-x: hidden; /* Prevent horizontal scroll */
+            overflow-x: hidden; 
             padding-bottom: 30px;
         }
 
-        /* Navigation Bar (Top Buttons) */
+        /* Navigation Bar */
         .navbar {
             background-color: transparent;
             padding: 20px 0 15px 0;
@@ -57,17 +57,17 @@
             box-shadow: 0 0 15px rgba(0, 255, 213, 0.4);
         }
 
-        /* Main Content Wrapper - Stacks all the sections vertically */
+        
         .main-content-wrapper {
             display: flex;
-            flex-direction: column; /* Stack all child sections vertically */
-            align-items: center; /* Center them horizontally */
-            width: 680px; /* Fixed width for the entire content area based on screenshot*/
-            margin: 0 auto; /* Centered */
-            gap: 20px; /* Space between the main content blocks */
+            flex-direction: column; 
+            align-items: center; 
+            width: 680px; 
+            margin: 0 auto; 
+            gap: 20px; 
         }
 
-        /* Generic Container Style for all sections (Add Candidate, Metamask, List, Table) */
+       
         .container-card {
             background-color: #1c1c1c;
             border-radius: 15px;
@@ -78,17 +78,17 @@
             position: relative;
             overflow: hidden;
             flex-shrink: 0;
-            width: 100%; /* Default to full width of its flex container */
+            width: 100%; 
             animation: fadeInScale 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
-        /* Animation for cards */
+        
         @keyframes fadeInScale {
             from { opacity: 0; transform: scale(0.95); }
             to { opacity: 1; transform: scale(1); }
         }
 
-        /* Background Pattern for Containers (Optional) */
+       
         .container-card::before {
             content: '';
             position: absolute;
@@ -103,19 +103,19 @@
             pointer-events: none;
         }
 
-        /* Container for Metamask and Add Candidate (side-by-side) */
+        
         .side-by-side-row {
             display: flex;
-            flex-direction: row; /* Arranges children horizontally*/
+            flex-direction: row; 
             justify-content: center;
             align-items: flex-start;
-            width: 100%; /* Takes the width of main-content-wrapper */
-            gap: 20px; /* Space between the two cards */
+            width: 100%; 
+            gap: 20px; 
         }
 
-        /* Individual Metamask and Add Candidate Cards */
+        
         .side-by-side-row .container-card {
-            width: 320px; /* Fixed width for each card to ensure side-by-side fit*/
+            width: 320px; 
             padding: 20px;
         }
 
@@ -129,10 +129,10 @@
             text-shadow: 0 0 5px rgba(0, 255, 213, 0.3);
         }
 
-        /* Candidate List Section (Table) */
+        
         .candidate-list-section {
             padding: 25px;
-            width: 100%; /* Takes full width of main-content-wrapper*/
+            width: 100%;
         }
         .candidate-list-section h3 {
              font-family: 'Roboto Mono', monospace;
@@ -144,7 +144,7 @@
             text-shadow: 0 0 5px rgba(0, 255, 213, 0.3);
         }
 
-        /* Button Styles (General) */
+        /* Button */
         button {
             background: linear-gradient(45deg, #00ffd5, #00c9aa);
             color: #121212;
@@ -199,13 +199,13 @@
             box-shadow: 0 0 5px rgba(0, 255, 213, 0.2);
         }
 
-        /* SVG Icons in Buttons */
+        
         button .button-icon {
             width: 16px;
             height: 16px;
         }
 
-        /* Input Fields */
+        
         input[type="text"],
         input[type="number"],
         select {
@@ -235,7 +235,7 @@
             background-color: #353535;
         }
 
-        /* Paragraphs within cards */
+       
         p {
             margin: 8px 0;
             font-size: 0.8em;
@@ -243,10 +243,10 @@
             text-align: center;
         }
 
-        /* Notification and Status Message Styles */
+        
         #metamasknotification,
         #votingStatus,
-        #p3 { /* p3 is used for listing all candidates message */
+        #p3 { 
             min-height: 18px;
             display: flex;
             align-items: center;
@@ -264,13 +264,13 @@
             word-break: break-word;
             line-height: 1.2;
         }
-        /* Specific colors for messages (as handled by your JS) */
+        
         #metamasknotification { color: #ffcc00; }
         #votingStatus { color: #88ccff; }
         #p3 { color: #88ccff; }
 
 
-        /* Form-specific styles */
+        
         form {
             display: flex;
             flex-direction: column;
@@ -280,12 +280,12 @@
             width: 100%;
         }
         
-        form input[type=text] { /* Targeting input within form specifically */
+        form input[type=text] { 
             width: 70%;
             margin: 10px 0;
         }
         
-        /* Submit button for form - inherits general button styles but added here for clarity */
+        /* Submit button  */
         input[type=submit] {
             background: linear-gradient(45deg, #00ffd5, #00c9aa);
             color: #121212;
@@ -321,7 +321,7 @@
             box-shadow: 0 0 5px rgba(0, 255, 213, 0.2);
         }
 
-        /* Span elements as titles within cards */
+        
         span {
             display: block;
             margin-bottom: 10px;
@@ -336,38 +336,38 @@
         #myTable {
             border-collapse: collapse;
             width: 100%;
-            max-width: 600px; /* Adjust max-width to fit within 680px main-content-wrapper */
-            margin: 20px auto; /* Centered with top margin for separation */
-            background-color: #1c1c1c; /* Same as card background */
-            border: 1px solid #2e2e2e; /* Same as card border */
-            border-radius: 15px; /* Apply border-radius to the table itself */
-            overflow: hidden; /* Ensures rounded corners are visible */
-            box-shadow: 0 0 20px rgba(0, 255, 213, 0.15); /* Same as card shadow */
+            max-width: 600px; 
+            margin: 20px auto; 
+            background-color: #1c1c1c; 
+            border: 1px solid #2e2e2e; 
+            border-radius: 15px; 
+            overflow: hidden; 
+            box-shadow: 0 0 20px rgba(0, 255, 213, 0.15); 
         }
 
         #myTable th,
         #myTable td {
-            border: 1px solid #3a3a3a; /* Darker border for cells */
-            padding: 10px 15px; /* Adjusted padding */
-            text-align: left; /* Align text to left for better readability */
+            border: 1px solid #3a3a3a; 
+            padding: 10px 15px; 
+            text-align: left; 
             color: #e0e0e0;
             font-size: 0.85em;
         }
 
         #myTable th {
-            background-color: #2a2a2a; /* Darker header background */
-            font-weight: 700; /* Bolder font */
-            color: #00ffd5; /* Accent color for headers */
+            background-color: #2a2a2a; 
+            font-weight: 700; 
+            color: #00ffd5; 
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         #myTable tbody tr:nth-child(even) {
-            background-color: #222222; /* Slightly different background for even rows */
+            background-color: #222222; 
         }
 
         #myTable tbody tr:hover {
-            background-color: #282828; /* Highlight on hover */
+            background-color: #282828;
             cursor: pointer;
         }
 

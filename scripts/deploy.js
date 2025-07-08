@@ -13,11 +13,11 @@ async function main() {
   console.log("📦 Contract compiled successfully");
 
   const voting = await Voting.deploy(
-    ["Nayan", "Tanya", "Moulina", "Nilanjan"], // 👈 Candidate names
-    10 // 👈 Duration in minutes
+    ["Nayan", "Tanya", "Moulina", "Nilanjan"], 
+    10 
   );
 
-  await voting.deployed(); // ✅ Correct way to wait for deployment
+  await voting.deployed(); 
 
   console.log("✅ Contract deployed at address:", voting.address);
 }

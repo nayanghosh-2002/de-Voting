@@ -191,7 +191,7 @@ async function loadContractAddress() {
   }
 }
 
-// Call it at the top of your main.js
+
 loadContractAddress();
 
 
@@ -207,7 +207,7 @@ const checkIfVotedAndUpdateUI = async () => {
         const hasVoted = await contract.voters(WALLET_CONNECTED);
 
         const voteDropdown = document.getElementById("vote");
-        const voteBtn = document.getElementById("votebtn"); // Make sure your button has this ID
+        const voteBtn = document.getElementById("votebtn"); /
         const cand = document.getElementById("cand");
 
         if (hasVoted) {
@@ -268,7 +268,7 @@ const connectMetamask = async () => {
             const element = document.getElementById("metamasknotification");
             element.innerHTML = "✅ Metamask is connected: " + WALLET_CONNECTED;
 
-            await checkIfVotedAndUpdateUI();  // 🔁 Call this here
+            await checkIfVotedAndUpdateUI(); 
         } catch (err) {
             console.error("❌ Metamask connection error:", err);
             alert("Metamask connection failed. Check console for details.");
@@ -350,7 +350,7 @@ const getAllCandidates = async () => {
         const contract = new ethers.Contract(contractAddress, contractAbi, signer);
 
         p3.innerHTML = "🕐 Fetching candidates...";
-        const candidates = await contract.getAllVotesOfCandidates();  // ✅ fixed spelling
+        const candidates = await contract.getAllVotesOfCandidates(); 
 
         table.innerHTML = `
             <tr>
@@ -376,7 +376,7 @@ const getAllCandidates = async () => {
 
 
 document.getElementById("addCandidateForm").addEventListener("submit", async (e) => {
-    e.preventDefault(); // Prevent page reload
+    e.preventDefault(); 
 
     const form = e.target;
     const candidateName = form.candidateName.value;
@@ -403,5 +403,5 @@ document.getElementById("addCandidateForm").addEventListener("submit", async (e)
         messageEl.textContent = "❌ Failed to add candidate.";
     }
 
-    form.reset(); // optional: clear form after submit
+    form.reset(); 
 });
